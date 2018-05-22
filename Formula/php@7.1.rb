@@ -80,6 +80,7 @@ class PhpAT71 < Formula
     ENV["lt_cv_path_SED"] = "sed"
 
     args = %W[
+      --with-curl=#{Formula["curl"].opt_prefix}
       --prefix=#{prefix}
       --localstatedir=#{var}
       --sysconfdir=#{config_path}
@@ -145,12 +146,6 @@ class PhpAT71 < Formula
       --with-xsl
       --with-zlib
     ]
-
-    #if MacOS.version < :lion
-      args << "--with-curl=#{Formula["curl"].opt_prefix}"
-    #else
-    #  args << "--with-curl=/usr/local/opt/curl"
-    #end
 
     system "./configure", *args
     system "make"
