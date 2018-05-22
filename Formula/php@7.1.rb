@@ -147,9 +147,9 @@ class PhpAT71 < Formula
     ]
 
     #if MacOS.version < :lion
-    #  args << "--with-curl=#{Formula["curl"].opt_prefix}"
+      args << "--with-curl=#{Formula["curl"].opt_prefix}"
     #else
-      args << "--with-curl=/usr/local/opt/curl/"
+    #  args << "--with-curl=/usr/local/opt/curl"
     #end
 
     system "./configure", *args
